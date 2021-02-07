@@ -1,0 +1,97 @@
+body{
+    background-color: lightsalmon;
+}
+.menu-bar{
+    background-color: lightsalmon;
+    color: white;
+    font-size: 30px;
+    float: left;
+}
+
+.search-food {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.search-food input {
+    border: none;
+    outline: none;
+    padding: 15px;
+    width: 400px;
+    border-radius: 10px 0px 0px 10px;
+    font-size: 20px ;
+}
+
+
+.search-food button {
+    border: none;
+    outline: none;
+    padding: 15px;
+    width: 100px;
+    border-radius: 0px 10px 10px 0px;
+    background-color: darkblue;
+    color: white;
+    margin-left: -7px;
+    font-size: 20px;
+    overflow: hidden;
+}
+
+.per-food-box {
+    overflow: hidden;
+    text-align: center;
+    background: white;
+    border-radius: 10px;
+}
+
+div#food-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    margin: 50px auto;
+    width: 90%;
+}
+
+.per-food-box img {
+    width: 100%;
+}
+
+.per-food-box button{
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+div#food-details {
+    text-align: center;
+    margin: 50px 0px;
+}
+
+div#food-details-box {
+    width: 350px;
+    overflow: hidden;
+    background: white;
+    border-radius: 10px;
+    margin: auto;
+}
+
+div#food-details-box img {
+    width: 100%;
+}
+
+div#food-details-box p {
+    text-align: left;
+    margin-left: 20px;
+}
+
+div#error-message {
+    text-align: center;
+    font-size: 50px;
+    color: red;
+}
+
+.details-btn{
+    background-color:goldenrod;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+}
