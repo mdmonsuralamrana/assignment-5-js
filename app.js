@@ -4,10 +4,16 @@ function showFoodItems() {
     fetch(apiURL)
         .then(res => res.json())
         .then(data => foodItems(data))
-        .catch(error => {
-            document.getElementById("error-message").innerText = "Foods Not Found";
+        .catch(error =>showErrorText())
+}
 
-        })
+function showErrorText() {
+    const showError = document.getElementById('error-message');
+    showError.style.display= 'block';
+    showError.innerHTML = '<h1>No Foods Found !</h1>';
+    document.getElementById('food-items-container').style.display = 'none';
+    document.getElementById('food-details').style.display = 'none';
+
 }
 
 function foodItems(data) {
@@ -17,27 +23,30 @@ function foodItems(data) {
         const foodName = foodItems[i].strMeal;
         const foodImg = foodItems[i].strMealThumb;
         const perFoodBox = document.createElement("div");
-        perFoodBox.className = "per-food-box"
+        perFoodBox.className = "per-food-box";
         const foodInfo = `
             <img src='${foodImg}'>
-            <h2>${foodName}</h2>
+            <h3>${foodName}</h3>
             <button class="details-btn" onclick="showDetails('${foodName}')">Details</button>
         ` ;
         perFoodBox.innerHTML = foodInfo;
         foodIList.appendChild(perFoodBox);
-
     }
+    document.getElementById("error-message").style.display = "none" ;
+    document.getElementById('food-items-container').style.display = 'block';
+    document.getElementById('food-details').style.display = 'none';
 }
 
-function showDetails(foodName){
+
+function showDetails(foodName) {
     const URL = `https://www.themealdb.com/api/json/v1/1/search.php?s=${foodName}`;
     fetch(URL)
         .then(res => res.json())
-        .then(data => details(data) )
+        .then(data => details(data))
 
 }
 
-function details (data){
+function details(data) {
     const foodDetails = document.getElementById('food-details-box');
     const food = data.meals;
     for (let i = 0; i < food.length; i++) {
@@ -56,6 +65,7 @@ function details (data){
         <p>g. ${food[i].strIngredient7}</p>
         `;
         foodDetails.innerHTML = foodDetailsInfo;
-        
+
     }
+    document.getElementById('food-details').style.display = 'block';
 }
